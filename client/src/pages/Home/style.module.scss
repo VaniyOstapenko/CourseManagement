@@ -1,0 +1,28 @@
+.wrapper {
+  width: 800px;
+  margin: 50px auto;
+
+  button {
+    height: 30px;
+  }
+
+  .box {
+    width: 448px;
+    height: 136px;
+    border: 1px solid #a8a8a8;
+    background-color: white;
+    padding: 10px;
+    margin-top: 20px;
+    border-radius: 5px;
+    h2 {
+      color: rgb(89, 139, 231);
+    }
+  }
+
+  .wrapperBox {
+    display: grid;
+    grid-template-rows: 1fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 0.5vw;
+  }
+}
