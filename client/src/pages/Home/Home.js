@@ -19,31 +19,35 @@ function Home() {
         info: 'test',
         city: 'minsk'
     }, {
-        title: 'Rubi',
+        title: 'C#',
         info: 'test',
         city: 'minsk'
     }, {
-        title: 'Rubi',
+        title: 'Pyton',
         info: 'test',
         city: 'minsk'
     }, {
-        title: 'Rubi',
+        title: 'Java',
         info: 'test',
         city: 'minsk'
     }, {
-        title: 'Rubi',
+        title: 'PHP',
         info: 'test',
         city: 'minsk'
     }, {
-        title: 'Rubi',
+        title: 'HCL',
         info: 'test',
         city: 'minsk'
     }, {
-        title: 'Rubi',
+        title: 'C',
         info: 'test',
         city: 'minsk'
     }, {
-        title: 'Rubi',
+        title: 'Go',
+        info: 'test',
+        city: 'minsk'
+    }, {
+        title: 'Ruby',
         info: 'test',
         city: 'minsk'
     }]
@@ -56,24 +60,28 @@ function Home() {
     const displayedArray = arr.slice(firstIndex, lastIndex);
 
     return (<div className={style.wrapper}>
-
         <Header></Header>
-        <Input
-            leftSection={<IconSearch size={16} />}
-            rightSectionWidth="80px"
-            rightSection={<Button variant="filled">Поиск</Button>}
-            placeholder="Введите название компании"
-        />
-        <div className={style.wrapperBox}>
+        <div className={style.item}>
 
-            {displayedArray.map((el) => <div className={style.box}><h2>{el.title}</h2><p>{el.info}</p><p>{el.city}</p></div>)}
+            <Input
+                leftSection={<IconSearch size={16} />}
+                rightSectionWidth="90px"
+                rightSection={<Button variant="filled">Поиск</Button>}
+                placeholder="Введите название курса"
+            />
+
+            <div className={style.wrapperBox}>
+                {displayedArray.map((el) => <div className={style.box}><h2>{el.title}</h2><p>{el.info}</p><p>{el.city}</p></div>)}
+            </div>
+
+            <div className={style.pagination}>
+                <Pagination
+                    total={Math.ceil(arr.length / vacanciesOnThePage)}
+                    onChange={setPaginalPageNumber}
+                    mt="sm"
+                />
+            </div>
         </div>
-
-        <Pagination
-            total={Math.ceil(arr.length / vacanciesOnThePage)}
-            onChange={setPaginalPageNumber}
-            mt="sm"
-        />
     </div>);
 }
 

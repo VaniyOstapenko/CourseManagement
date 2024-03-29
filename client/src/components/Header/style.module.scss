@@ -1,25 +1,31 @@
 .wrapper {
-  width: 1000px;
-  display: flex;
-  justify-content: space-between;
+  background-color: #ffffff;
 
-  h1 {
-    font: 600 36px "Poppins";
-  }
-
-  .admin {
+  .item {
+    width: 1000px;
     display: flex;
-    gap: 50px;
-    margin-right: 350px;
-
-    .headerAdmin {
-      font: 500 16px "Inter";
-      color: #232124;
+    justify-content: space-between;
+    align-items: center;
+    margin: 0 auto;
+    padding: 20px;
+    h1 {
+      font: 600 24px "Poppins";
     }
 
-    .headerWitch {
-      font: 400 16px "Inter";
-      color: #232124;
+    .admin {
+      display: flex;
+      gap: 50px;
+      margin-right: 350px;
+
+      .headerAdmin {
+        font: 500 16px "Inter";
+        color: #232124;
+      }
+
+      .headerWitch {
+        font: 400 16px "Inter";
+        color: #232124;
+      }
     }
   }
 }
