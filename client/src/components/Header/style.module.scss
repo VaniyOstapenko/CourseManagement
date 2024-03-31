@@ -17,14 +17,16 @@
       gap: 50px;
       margin-right: 350px;
 
-      .headerAdmin {
+      .headerAdmin:hover {
         font: 500 16px "Inter";
         color: #232124;
+        cursor: pointer;
       }
 
-      .headerWitch {
+      .headerWitch:hover {
         font: 400 16px "Inter";
         color: #232124;
+        cursor: pointer;
       }
     }
   }
