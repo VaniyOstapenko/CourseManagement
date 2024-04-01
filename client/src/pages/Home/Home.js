@@ -4,60 +4,17 @@ import { IconSearch } from "@tabler/icons-react";
 import { Pagination } from "@mantine/core";
 import { useState } from "react";
 import Header from "../../components/Header/Header";
+import { useGetCourseQuery } from "../../services/course";
 
 function Home() {
-    const arr = [{
-        title: 'JS',
-        info: 'test',
-        city: 'minsk'
-    }, {
-        title: 'TS',
-        info: 'test',
-        city: 'minsk'
-    }, {
-        title: 'С++',
-        info: 'test',
-        city: 'minsk'
-    }, {
-        title: 'C#',
-        info: 'test',
-        city: 'minsk'
-    }, {
-        title: 'Pyton',
-        info: 'test',
-        city: 'minsk'
-    }, {
-        title: 'Java',
-        info: 'test',
-        city: 'minsk'
-    }, {
-        title: 'PHP',
-        info: 'test',
-        city: 'minsk'
-    }, {
-        title: 'HCL',
-        info: 'test',
-        city: 'minsk'
-    }, {
-        title: 'C',
-        info: 'test',
-        city: 'minsk'
-    }, {
-        title: 'Go',
-        info: 'test',
-        city: 'minsk'
-    }, {
-        title: 'Ruby',
-        info: 'test',
-        city: 'minsk'
-    }]
+    const { data } = useGetCourseQuery()
 
     const [vacanciesOnThePage] = useState(4);
     const [paginalPageNumber, setPaginalPageNumber] = useState(1);
 
     const lastIndex = vacanciesOnThePage * paginalPageNumber;
     const firstIndex = lastIndex - vacanciesOnThePage;
-    const displayedArray = arr.slice(firstIndex, lastIndex);
+    const displayedArray = data?.slice(firstIndex, lastIndex);
 
     return (<div className={style.wrapper}>
         <Header></Header>
@@ -71,12 +28,12 @@ function Home() {
             />
 
             <div className={style.wrapperBox}>
-                {displayedArray.map((el) => <div className={style.box}><h2>{el.title}</h2><p>{el.info}</p><p>{el.city}</p></div>)}
+                {displayedArray?.map((el) => <div className={style.box}><h2>{el.title}</h2><p>{el.info}</p><p>{el.city}</p></div>)}
             </div>
 
             <div className={style.pagination}>
                 <Pagination
-                    total={Math.ceil(arr.length / vacanciesOnThePage)}
+                    total={Math.ceil(data?.length / vacanciesOnThePage)}
                     onChange={setPaginalPageNumber}
                     mt="sm"
                 />
